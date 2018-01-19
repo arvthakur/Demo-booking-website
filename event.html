@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event</title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style media="screen">
+
+
+
+
+.container-fluid.main{
+position: relative; /* To make the navbar positions relative to this container */
+padding: 0;
+}
+
+.navbar-default {
+background-image: none;
+background-color: transparent; /* Make the menu become transparent */
+border-radius: 0px;
+border: 0;
+box-shadow: none;
+padding: 10px;
+position: absolute; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
+top: 0;
+left: 0;
+right: 0;
+z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
+}
+
+.navbar-default .navbar-brand {
+font-family: Verdana;
+color: #ffffff;
+font-size: 20px;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+color: #ffffff;
+background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+color: #ffffff;
+background-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover {
+background-color: transparent;
+}
+
+.navbar-default .navbar-toggle:focus {
+background-color: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+background-color: #ffffff;
+}
+
+.carousel .background {
+background-position: center center;
+background-size: 100% 100%;
+background-repeat: no-repeat;
+height: 600px;
+}
+@media (max-width:740px) {
+.carousel .background { height: 200px;
+background-size: cover; /* To make the background image looks good */
+}
+}
+@media (max-width:991px) {
+.carousel .background {
+background-size: cover; /* To make the background image looks good */
+}
+}
+
+.carousel .background.a {
+background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("a.jpg");
+}
+
+.carousel .background.b {
+background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("b.jpg");
+}
+
+.carousel .background.c {
+background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("c.jpg");
+}
+
+.carousel-fade .carousel-inner .item {
+opacity: 0;
+transition: opacity 0.5s; /* The 0.5s describes the duration to make the opacity from 0 to 1 */
+}
+
+.carousel-fade .carousel-inner .active {
+opacity: 1;
+}
+
+/* CSS Hack to trigger GPU for smooth transition */
+@media all and (transform-3d),
+(-webkit-transform-3d) {
+.carousel-fade .carousel-inner > .item.next,
+.carousel-fade .carousel-inner > .item.active.right {
+opacity: 0;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-inner > .item.prev,
+.carousel-fade .carousel-inner > .item.active.left {
+opacity: 0;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-inner > .item.next.left,
+.carousel-fade .carousel-inner > .item.prev.right,
+.carousel-fade .carousel-inner > .item.active {
+opacity: 1;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+}
+/* CSS Hack to trigger GPU for smooth transition */
+
+.covertext {
+position: absolute; /* To make the div to be place anywhere. It is out of the document flow */
+top: 200px; /* The distance between the div with the top of document */
+left: 0px; /* Make the div full width */
+right: 0px; /* Make the div full width */
+}
+
+.title {
+font-family: Verdana;
+font-weight: 600;
+font-size: 60px;
+color: #ffffff;
+text-align: center;
+}
+
+.subtitle {
+font-family: Verdana;
+font-size: 23px;
+color: #ffffff;
+text-align: center;
+}
+
+.explore {
+text-align: center;
+margin-top: 10px;
+}
+
+.explore .btn-lg,
+.explore .btn-lg:hover {
+border-radius: 30px;
+padding: 15px 25px;
+font-size: 22px;
+background-image: none;
+background-color: #FF4000;
+border-color: #FF4000;
+color: #ffffff;
+}
+
+.btn,
+.btn:hover {
+border-radius: 0px;
+background-image: none;
+background-color: #FF4000;
+border-color: #FF4000;
+color: #ffffff;
+margin-bottom: 20px;
+box-shadow: none;
+outline: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+color: #ffffff;
+outline: none;
+
+}
+	.icon{width: 35px;padding-top: 40px;}
+	.navbar-brand{font-weight:bold; font-family:Bauhaus 93; font-style: italic;}
+	footer{background-color: black;}
+	.copy{color: #808080;
+		text-align: center; padding: 40px;}
+	</style>
+
+	<script type="text/javascript">
+	/* When your mouse cursor enter the background, the fading won't pause and keep playing */
+	$('.carousel').carousel({
+	pause: "false" /* Change to true to make it paused when your mouse cursor enter the background */
+	});
+	</script>
+</head>
+
+<body>
+
+	<div class="container-fluid main">
+
+	<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">bookmyshow</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			 
+			<ul class="nav navbar-nav">
+							<li><a href="home.html">HOME</a></li>
+				<li><a href="movie.html">MOVIE</a></li>
+				<li><a href="#">EVENTS</a></li>
+
+
+			</ul>
+		</div>
+	</div>
+	</nav>
+
+	<div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
+	<div class="carousel-inner" role="listbox">
+		<div class="item active background a"></div>
+		<div class="item background b"></div>
+		<div class="item background c"></div>
+	</div>
+	</div>
+
+<div class="container"><center>
+  <div class="btn-group btn-group-lg active" style="border:0px solid;">
+    <button class="btn active" type="button" class="btn ">EVENTS </button>
+    <button type="button" class="btn ">VENUES</button>
+
+  </div></center>
+</div>
+<br>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-3" >
+      <img src="9.png" width="100%">
+
+      <button type="button" class="btn btn-danger" style="width:100%; margin-top: 5px;">BookNow</button>
+
+    </div>
+    <div class="col-sm-3" >
+         <img src="2.png" width="100%">
+         <br>
+         <button type="button" class="btn btn-danger" style="width:100%; margin-top: 5px;">BookNow</button>
+    </div>
+    <div class="col-sm-3">
+         <img src="3.png" width="100%"><br>
+         <button type="button" class="btn btn-danger" style="width:100%; margin-top: 5px;">BookNow</button>
+    </div>
+    <div class="col-sm-3">
+         <img src="4.png" width="100%">
+         <button type="button" class="btn btn-danger" style="width:100%; margin-top: 5px;">BookNow</button>
+    </div>
+    </div>
+    <hr>
+<br>
+
+    <div class="row">
+    <div class="col-sm-3" >
+      <img src="5.png" width="100%">
+      <button type="button" class="btn btn-danger" style="width:100%; margin-top: 5px;">BookNow</button>
+
+    </div>
+    <div class="col-sm-3">
+         <img src="6.png" width="100%">
+         <button type="button" class="btn btn-danger" style="width:100%; margin-top: 5px;">BookNow</button>
+    </div>
+    <div class="col-sm-3">
+         <img src="7.png" width="100%">
+         <button type="button" class="btn btn-danger" style="width:100%; margin-top: 5px;">BookNow</button>
+    </div>
+    <div class="col-sm-3">
+         <img src="8.png" width="100%">
+         <button type="button" class="btn btn-danger" style="width:100%; margin-top: 5px;">BookNow</button>
+    </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<footer> <div class="container">
+
+
+<div class="row">
+  <div class="col-sm-5">
+  </div>
+  <div class="col-sm-2" style="padding-top:15px;">
+  <img src="logo1.png" alt="" style="width:200px;">
+  </div>
+  <div class="col-sm-5">
+  </div>
+</div>
+<center>
+<div class="">
+  <img src="fb-icon.png" alt="" class="icon">
+  <img src="tt-icon.png" alt="" class="icon">
+  <img src="sb-icon.png" alt="" class="icon">
+  <img src="yt-icon.png" alt="" class="icon">
+
+</div>
+</center>
+<div class="copy">
+  <p>&copy Copyright 2017 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+The content and images used on this site are copyright protected and copyrights vests with the respective owners.
+ The usage of the content and images on this   website is intended to promote the
+works and no endorsement of the artist shall be implied. Unauthorized use is prohibited and punishable by law.</p>
+</div>
+</div>
+</footer>
+</body>
+</html>
